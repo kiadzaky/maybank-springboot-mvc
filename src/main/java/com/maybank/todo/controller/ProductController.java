@@ -15,7 +15,8 @@ import com.maybank.todo.model.Product;
 import com.maybank.todo.service.ProductService;
 
 @Controller
-public class AppController {
+@RequestMapping(value = "/product")
+public class ProductController {
 	@Autowired
 	ProductService service;
     @RequestMapping(value = "/")
@@ -23,7 +24,7 @@ public class AppController {
         List<Product> listProducts = service.listAll();
         model.addAttribute("listProducts", listProducts);
          
-        return "index";
+        return "product/index";
     }
     
     @RequestMapping("/new")
@@ -31,18 +32,18 @@ public class AppController {
         Product product = new Product();
         model.addAttribute("product", product);
          
-        return "new_product";
+        return "product/new_product";
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("product") Product product) {
         service.save(product);
          
-        return "redirect:/";
+        return "redirect:/product";
     }
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("edit_product");
+        ModelAndView mav = new ModelAndView("product/edit_product");
         Product product = service.get(id);
         mav.addObject("product", product);
          
