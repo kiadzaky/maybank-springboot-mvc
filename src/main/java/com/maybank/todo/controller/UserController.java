@@ -27,7 +27,6 @@ public class UserController {
 		ModelAndView modelAndView = new ModelAndView("user/login");
 		User userobj =  service.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		if(userobj != null) {
-//			return "redirect:/product/";	
 			ModelAndView andView = new ModelAndView("redirect:/product/");
 			return andView;
 		}else {
