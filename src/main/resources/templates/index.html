@@ -37,6 +37,7 @@
 						&nbsp;&nbsp;&nbsp;
 						<a th:href="@{'/delete/' + ${product.id}}" class="btn btn-danger" 
 							onclick="return confirm('Are you sure you want to delete this item?');"
+							th:if="${product.id} == '1'"
 						>Delete</a>
 					</td>
 				</tr>
