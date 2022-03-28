@@ -10,6 +10,7 @@ import lombok.Data;
 @Entity
 @Data
 public class Product { // nama class disesuaikan dengan nama tabel / entity 		
+	// disesuaikan dengan nama kolom
     private Long id;
     private String name;
     private String brand;
