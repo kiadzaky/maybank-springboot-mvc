@@ -39,7 +39,7 @@ public class ProductController {
     public String saveProduct(@ModelAttribute("product") Product product) {
         service.save(product);
          
-        return "redirect:/product";
+        return "redirect:/product/";
     }
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
